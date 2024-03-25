@@ -29,8 +29,8 @@ Tespit edilen nesneleri kategorize edin veya detaylı etiketleme yapın.
 Etiketleme çıktılarını belirlediğiniz klasöre kaydedin.
 Detaylı kullanım kılavuzu için lütfen Kullanım Kılavuzu dokümanını inceleyin.
 YouTube Link : https://youtu.be/Crb21e5_ozc
-Lisans
+# Lisans
 Bu proje GNU Genel Kamu Lisansı altında lisanslanmıştır.
 
-İletişim
+# İletişim
 Proje hakkında geri bildirimlerinizi veya sorularınızı şu adrese gönderebilirsiniz: n.musa2182@gmail.com
