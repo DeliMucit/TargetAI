@@ -11,11 +11,12 @@ Projenin kullanımı için gerekli kurulum adımlarını aşağıdaki gibi gerç
 
 Projeyi bilgisayarınıza klonlayın ve kütüphaneleri kurun:
 
-git clone https://github.com/kullaniciadi/TargetAI.git
+git clone https://github.com/NMusaOz/TargetAI.git
 
 Gerekli CUDA yı yükleyin:
 
 https://developer.nvidia.com/cudnn
+
 https://developer.nvidia.com/cuda-toolkit
 
 
