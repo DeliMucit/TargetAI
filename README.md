@@ -3,6 +3,8 @@ TargetAI, Tensorflow COCO destekli bir görüntü etiketleme aracıdır. Bu ara�
 
 Örneğin, araba tespiti yapıp markalara göre etiketleme yapabilir veya araç tespiti yapıp tespit edilen aracın tekerlekleri, camları, kapıları gibi parçalarını etiketleyebilirsiniz. Etiketleme çıktıları, XML formatında TargetIA.py dosyasının bulunduğu klasörde belirlediğiniz etiket adında bir klasöre kaydedilir.
 
+!!! Dikkat manuel etiketleme yapmak için 1280x720 ölçülerine sahip görüntüler kullanını !!!!
+
 
 ![image](https://github.com/DeliMucit/TargetIA/assets/114938961/251aec0b-f047-4423-a806-8eab28982419)
 
