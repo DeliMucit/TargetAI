@@ -1,11 +1,12 @@
 # TargetAI V1.0.1
 TargetAI, Tensorflow COCO destekli bir görüntü etiketleme aracıdır. Bu araç, video üzerinde nesne tespiti ve etiketleme yapabilmenizi sağlar. 80 farklı nesneyi tespit edebilir ve üzerlerinde etiketleme yapabilir. Tespit edilen nesneleri kategorize etmek veya detaylı etiketleme yapmak için tasarlanmıştır.
-
+Örneğin, araba tespiti yapıp markalara göre etiketleme yapabilir veya araç tespiti yapıp tespit edilen aracın tekerlekleri, camları, kapıları gibi parçalarını etiketleyebilirsiniz. Etiketleme çıktıları, XML formatında TargetIA.py dosyasının bulunduğu klasörde belirlediğiniz etiket adında bir klasöre kaydedilir.
 Yenilikler:
 
 Opencv destekli renk filtreleme eklendi. Bu sayede renk odaklı etiketleme daha hassas yapılabilecek.
+
 Kullanım kılavuzu güncellendi.
-Örneğin, araba tespiti yapıp markalara göre etiketleme yapabilir veya araç tespiti yapıp tespit edilen aracın tekerlekleri, camları, kapıları gibi parçalarını etiketleyebilirsiniz. Etiketleme çıktıları, XML formatında TargetIA.py dosyasının bulunduğu klasörde belirlediğiniz etiket adında bir klasöre kaydedilir.
+
 
 !!! Dikkat manuel etiketleme yapmak için 1280x720 ölçülerine sahip görüntüler kullanını !!!!
 OpenCV HSV Fitreli
