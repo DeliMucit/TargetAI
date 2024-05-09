@@ -79,7 +79,7 @@ class Form(QWidget):
         super().__init__()
         widget = QWidget()
 
-        self.setWindowTitle("TargetAI V1.0.2")
+        self.setWindowTitle("TargetAI V1.0.3")
         self.setWindowIcon(QIcon('icon.png'))
         #self.setGeometry(100, 100, 700, 650)
         self.setFixedSize(1715, 760)  # Form ekranının boyutunu sabitliyoruz
@@ -230,16 +230,19 @@ class Form(QWidget):
         self.textbox = QLineEdit(self)
         self.textbox.setGeometry(1505, 65,200,25)
 
+        self.ticket_main_combobox = QComboBox(self)
+        self.ticket_main_combobox.setGeometry(1505, 100, 200, 30)
+
         self.ticket_combobox = QComboBox(self)
-        self.ticket_combobox.setGeometry(1505, 100, 200, 30)
+        self.ticket_combobox.setGeometry(1505, 135, 200, 30)
 
         self.target_label = QLabel('Arial font',self)
         self.target_label.setText("Etiket Listesi   ")
-        self.target_label.setGeometry(1505, 135,200,20)
+        self.target_label.setGeometry(1505, 170,200,20)
         self.target_label.setFont(QFont('Arial', 10))
 
         self.listbox = QListWidget(self)
-        self.listbox.setGeometry(1505, 155, 200, 350)
+        self.listbox.setGeometry(1505, 195, 200, 320)
         self.listbox.itemClicked.connect(self.secili_elemani_goster)
 
 
@@ -410,6 +413,7 @@ class Form(QWidget):
         # Combobox içinde yeni metnin olup olmadığını kontrol et
         if new_item not in [self.ticket_combobox.itemText(i) for i in range(self.ticket_combobox.count())]:
             self.ticket_combobox.addItem(new_item)
+            self.ticket_main_combobox.addItem(new_item)
             self.ticket_textbox.clear()
         else:
             print("Bu metin zaten Combobox içinde mevcut.")
@@ -520,8 +524,10 @@ class Form(QWidget):
         else:
             self.klasor = self.textbox.text()
             self.save_folder = self.klasor
-            jpg_dosyalari = glob.glob(os.path.join(self.klasor, '*.jpg'))
-            self.file_count = len(jpg_dosyalari)
+            if self.file_count==0:
+                jpg_dosyalari = glob.glob(os.path.join(self.klasor, '*.jpg'))
+                self.file_count = len(jpg_dosyalari)
+                print("Dosya sayısı"+str(self.file_count))
             # XML oluşturucuyu başlat
             self.xml_creator = XMLCreator(self.save_folder)
 
@@ -604,7 +610,7 @@ class Form(QWidget):
                                 print("Person detected with confidence:", score)
                                 print("Coordinates: ymin={}, xmin={}, ymax={}, xmax={}".format(ymin_pixel, xmin_pixel, ymax_pixel, xmax_pixel),score)
                                 self.object_list.append({
-                                    "name": self.ticket_combobox.currentText(),
+                                    "name": self.ticket_main_combobox.currentText(),
                                     "xmin": xmin_pixel,
                                     "ymin": ymin_pixel,
                                     "xmax": xmax_pixel,
@@ -648,14 +654,14 @@ class Form(QWidget):
                         print("Coordinates: ymin={}, xmin={}, ymax={}, xmax={}".format(ymin_pixel, xmin_pixel, ymax_pixel, xmax_pixel),score)
                         target_control=1
                         self.object_list.append({
-                                    "name": self.ticket_combobox.currentText(),
+                                    "name": self.ticket_main_combobox.currentText(),
                                     "xmin": xmin_pixel,
                                     "ymin": ymin_pixel,
                                     "xmax": xmax_pixel,
                                     "ymax": ymax_pixel
                         })
                         if self.radio_button1.isChecked() or self.radio_button2.isChecked():
-                            cv2.rectangle(frame, (xmin_pixel, ymin_pixel), (xmax_pixel, ymax_pixel), (0, 255, 0), 1)
+                            cv2.rectangle(frame, (xmin_pixel, ymin_pixel), (xmax_pixel, ymax_pixel), (255, 0, 0), 1)
                         else:
                             self.object_list=[]
 
@@ -727,7 +733,10 @@ class Form(QWidget):
         if self.object_list:
             i=0
             for dizi in self.object_list:
-                cv2.rectangle(frame, (self.object_list[i]["xmin"], self.object_list[i]["ymin"]), (self.object_list[i]["xmax"], self.object_list[i]["ymax"]), (0, 255, 0), 1)
+                if self.object_list[i]["name"] ==self.ticket_main_combobox.currentText():
+                    cv2.rectangle(frame, (self.object_list[i]["xmin"], self.object_list[i]["ymin"]), (self.object_list[i]["xmax"], self.object_list[i]["ymax"]), (255, 0, 0), 1)
+                else:
+                    cv2.rectangle(frame, (self.object_list[i]["xmin"], self.object_list[i]["ymin"]), (self.object_list[i]["xmax"], self.object_list[i]["ymax"]), (0, 255, 0), 1)
                 i=i+1
             self.delete_button.setEnabled(True)
             self.save_button.setEnabled(True)
