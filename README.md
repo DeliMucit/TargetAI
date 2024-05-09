@@ -34,6 +34,9 @@ Fitresiz  V1.0.1
 V1.0.2
 
 ![TR_Tanıtım](https://github.com/NMusaOz/TargetAI/assets/114938961/d660a809-3a74-4015-ac80-151f6de187d0)
+![EN_Tanıtım](https://github.com/NMusaOz/TargetAI/assets/114938961/f37de10e-b4f0-42b6-ae48-a2f1808e86d5)
+![RU_Tanıtım](https://github.com/NMusaOz/TargetAI/assets/114938961/a2f301b8-ecc6-4eee-8e57-a58839949b10)
+
 
 V1.0.3
 
